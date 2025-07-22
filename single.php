@@ -163,8 +163,11 @@
                                     Ver Detalhes
                                 </a>
                             </article>
-                        <?php endwhile; 
-                        wp_reset_postdata();
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
+                        <?php else : ?>
+                            <a>Novas soluções em desenvolvimento, aguarde!</a>
+                        <?php    
                         endif; ?>
                     </div>
                 </div>
