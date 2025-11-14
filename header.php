@@ -55,11 +55,11 @@
                 <div class="header-actions">
                     <a href="<?php echo esc_url(home_url('/downloads/')); ?>" class="header-cta">
                         <i class="fas fa-download"></i>
-                        <span>Ver Plugins</span>
+                        <span>View Plugins</span>
                     </a>
                 </div>
                 
-                <button class="mobile-menu-toggle" aria-label="Abrir menu">
+                <button class="mobile-menu-toggle" aria-label="Open menu">
                     <span></span>
                     <span></span>
                     <span></span>

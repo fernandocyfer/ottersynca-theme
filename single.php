@@ -24,7 +24,7 @@
                         </span>
                         <span style="margin-right: 2rem;">
                             <i class="fas fa-code-branch"></i> 
-                            Versão <?php echo get_post_meta(get_the_ID(), 'plugin_version', true) ?: '1.0.0'; ?>
+                            Version <?php echo get_post_meta(get_the_ID(), 'plugin_version', true) ?: '1.0.0'; ?>
                         </span>
                         <span>
                             <i class="fas fa-download"></i> 
@@ -36,7 +36,7 @@
                 <div class="plugin-content">
                     <div class="plugin-main-content">
                         <div class="plugin-description">
-                            <h2>Descrição</h2>
+                            <h2>Description</h2>
                             <div class="description-content">
                                 <?php the_content(); ?>
                             </div>
@@ -44,7 +44,7 @@
                         
                         <?php if (get_post_meta(get_the_ID(), 'plugin_features', true)) : ?>
                             <div class="plugin-features-section">
-                                <h3>Funcionalidades</h3>
+                                <h3>Features</h3>
                                 <ul class="plugin-features">
                                     <?php 
                                     $features = get_post_meta(get_the_ID(), 'plugin_features', true);
@@ -68,9 +68,9 @@
                                 <?php 
                                 $price = cyfer_get_download_price();
                                 if ($price == '0.00') {
-                                    echo '<span style="font-size: 2.5rem; font-weight: 700; color: #4CAF50;">Grátis</span>';
+                                    echo '<span style="font-size: 2.5rem; font-weight: 700; color: #4CAF50;">Free</span>';
                                 } else {
-                                    echo '<span style="font-size: 2.5rem; font-weight: 700; color: #667eea;">R$ ' . $price . '</span>';
+                                    echo '<span style="font-size: 2.5rem; font-weight: 700; color: #667eea;">$' . $price . '</span>';
                                 }
                                 ?>
                             </div>
@@ -81,11 +81,11 @@
                             
                             <div class="plugin-info">
                                 <div style="margin-bottom: 1rem;">
-                                    <strong><i class="fas fa-shield-alt" style="color: #667eea; margin-right: 0.5rem;"></i>Compatibilidade:</strong> 
+                                    <strong><i class="fas fa-shield-alt" style="color: #667eea; margin-right: 0.5rem;"></i>Compatibility:</strong> 
                                     <br>WordPress <?php echo get_post_meta(get_the_ID(), 'wp_version', true) ?: '5.0+'; ?>
                                 </div>
                                 <div style="margin-bottom: 1rem;">
-                                    <strong><i class="fas fa-sync-alt" style="color: #667eea; margin-right: 0.5rem;"></i>Última atualização:</strong> 
+                                    <strong><i class="fas fa-sync-alt" style="color: #667eea; margin-right: 0.5rem;"></i>Last Update:</strong> 
                                     <br><?php echo get_the_modified_date(); ?>
                                 </div>
                                 <div style="margin-bottom: 1rem;">
@@ -93,8 +93,8 @@
                                     <br><?php echo get_post_meta(get_the_ID(), 'download_count', true) ?: '0'; ?>
                                 </div>
                                 <div>
-                                    <strong><i class="fas fa-star" style="color: #667eea; margin-right: 0.5rem;"></i>Suporte:</strong> 
-                                    <br>Premium incluído
+                                    <strong><i class="fas fa-star" style="color: #667eea; margin-right: 0.5rem;"></i>Support:</strong> 
+                                    <br>Premium included
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                             if (is_array($screenshots)) {
                                 foreach ($screenshots as $screenshot) {
                                     echo '<div class="screenshot-item">';
-                                    echo '<img src="' . esc_url($screenshot) . '" alt="Screenshot do plugin">';
+                                    echo '<img src="' . esc_url($screenshot) . '" alt="Plugin Screenshot">';
                                     echo '</div>';
                                 }
                             }
@@ -121,7 +121,7 @@
                 
                 <!-- Seção de plugins relacionados -->
                 <div class="related-plugins">
-                    <h2>Outros Plugins</h2>
+                    <h2>Other Plugins</h2>
                     <div class="plugins-grid">
                         <?php
                         $related_query = new WP_Query(array(
@@ -152,21 +152,21 @@
                                     <?php 
                                     $price = cyfer_get_download_price();
                                     if ($price == '0.00') {
-                                        echo 'Grátis';
+                                        echo 'Free';
                                     } else {
-                                        echo 'R$ ' . $price;
+                                        echo '$' . $price;
                                     }
                                     ?>
                                 </div>
                                 
                                 <a href="<?php the_permalink(); ?>" class="buy-button">
-                                    Ver Detalhes
+                                    View Details
                                 </a>
                             </article>
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
                         <?php else : ?>
-                            <a>Novas soluções em desenvolvimento, aguarde!</a>
+                            <a>New solutions in development, stay tuned!</a>
                         <?php    
                         endif; ?>
                     </div>

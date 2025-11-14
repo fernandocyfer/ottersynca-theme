@@ -4,11 +4,10 @@
 
 (function($) {
     'use strict';
-    console.log('Cyfer Plugins Theme JavaScript');
 
     $(document).ready(function() {
         
-        // Smooth scroll para links internos
+        // Smooth scroll for internal links
         $('a[href^="#"]').on('click', function(e) {
             e.preventDefault();
             
@@ -20,7 +19,7 @@
             }
         });
 
-        // Animação de fade in para cards de plugins
+        // Fade in animation for plugin cards
         function animatePluginCards() {
             $('.plugin-card').each(function(index) {
                 var $this = $(this);
@@ -30,10 +29,10 @@
             });
         }
 
-        // Executa animação quando a página carrega
+        // Execute animation when page loads
         animatePluginCards();
 
-        // Animação no scroll
+        // Animation on scroll
         $(window).scroll(function() {
             var scrollTop = $(window).scrollTop();
             var windowHeight = $(window).height();
@@ -55,14 +54,14 @@
             $('body').toggleClass('menu-open');
         });
 
-        // Fecha menu mobile ao clicar em um link
+        // Close mobile menu when clicking a link
         $('.nav-menu a').on('click', function() {
             $('.mobile-menu-toggle').removeClass('active');
             $('.site-navigation').removeClass('active');
             $('body').removeClass('menu-open');
         });
 
-        // Fecha menu mobile ao clicar fora
+        // Close mobile menu when clicking outside
         $(document).on('click', function(e) {
             if (!$(e.target).closest('.site-navigation, .mobile-menu-toggle').length) {
                 $('.mobile-menu-toggle').removeClass('active');
@@ -71,7 +70,7 @@
             }
         });
 
-        // Adiciona classe ativa ao header no scroll
+        // Add active class to header on scroll
         $(window).scroll(function() {
             if ($(window).scrollTop() > 100) {
                 $('.site-header').addClass('scrolled');
@@ -98,7 +97,7 @@
             });
         }
 
-        // Contador de downloads (exemplo)
+        // Download counter (example)
         function updateDownloadCount() {
             $('.download-count').each(function() {
                 var $this = $(this);
@@ -108,10 +107,10 @@
             });
         }
 
-        // Atualiza contador a cada 30 segundos (apenas para demonstração)
+        // Update counter every 30 seconds (demo only)
         // setInterval(updateDownloadCount, 30000);
 
-        // Formulário de contato
+        // Contact form
         $('#contact-form').on('submit', function(e) {
             e.preventDefault();
             
@@ -122,16 +121,16 @@
                 type: 'POST',
                 data: formData,
                 success: function(response) {
-                    alert('Mensagem enviada com sucesso!');
+                    alert('Message sent successfully!');
                     $('#contact-form')[0].reset();
                 },
                 error: function() {
-                    alert('Erro ao enviar mensagem. Tente novamente.');
+                    alert('Error sending message. Please try again.');
                 }
             });
         });
 
-        // Sistema de filtros avançado
+        // Advanced filter system
         function filterPlugins() {
             var category = $('.plugin-filter').val();
             var price = $('.price-filter').val();
@@ -143,12 +142,12 @@
                 var cardPrice = $card.data('price');
                 var showCard = true;
                 
-                // Filtro por categoria
+                // Filter by category
                 if (category !== 'all' && cardCategory !== category) {
                     showCard = false;
                 }
                 
-                // Filtro por preço
+                // Filter by price
                 if (price !== 'all' && cardPrice !== price) {
                     showCard = false;
                 }
@@ -160,35 +159,35 @@
                 }
             });
             
-            // Atualiza contador de resultados
+            // Update results counter
             updateResultsCount();
         }
 
-        // Atualiza contador de resultados
+        // Update results counter
         function updateResultsCount() {
             var visibleCards = $('.plugin-card:visible').length;
             var totalCards = $('.plugin-card').length;
             
             if (visibleCards === 0) {
-                $('.results-count').text('Nenhum plugin encontrado');
+                $('.results-count').text('No plugins found');
             } else if (visibleCards === totalCards) {
-                $('.results-count').text(visibleCards + ' plugin' + (visibleCards > 1 ? 's' : '') + ' encontrado' + (visibleCards > 1 ? 's' : ''));
+                $('.results-count').text(visibleCards + ' plugin' + (visibleCards > 1 ? 's' : '') + ' found');
             } else {
-                $('.results-count').text(visibleCards + ' de ' + totalCards + ' plugin' + (totalCards > 1 ? 's' : '') + ' encontrado' + (visibleCards > 1 ? 's' : ''));
+                $('.results-count').text(visibleCards + ' of ' + totalCards + ' plugin' + (totalCards > 1 ? 's' : '') + ' found');
             }
         }
 
-        // Inicializa filtros na página de plugins
+        // Initialize filters on plugins page
         if ($('.plugin-filter').length > 0) {
             updateResultsCount();
         }
 
-        // Event listeners para filtros
+        // Event listeners for filters
         $('.plugin-filter, .price-filter, .sort-filter').on('change', function() {
             filterPlugins();
         });
 
-        // Limpar filtros
+        // Clear filters
         $('.clear-filters').on('click', function() {
             $('.plugin-filter').val('all');
             $('.price-filter').val('all');
@@ -196,7 +195,7 @@
             filterPlugins();
         });
 
-        // Ordenação de plugins
+        // Plugin sorting
         function sortPlugins(sortType) {
             var $grid = $('.plugins-grid');
             var $cards = $grid.find('.plugin-card').get();
@@ -233,13 +232,13 @@
             $grid.append($cards);
         }
 
-        // Event listener para ordenação
+        // Event listener for sorting
         $('.sort-filter').on('change', function() {
             var sortType = $(this).val();
             sortPlugins(sortType);
         });
 
-        // Adiciona efeito hover nos botões
+        // Add hover effect to buttons
         $('.buy-button, .cta-button').hover(
             function() {
                 $(this).addClass('hover');
@@ -280,7 +279,7 @@
             }
         );
 
-        // Inicializa contador de resultados
+        // Initialize results counter
         updateResultsCount();
 
     });
