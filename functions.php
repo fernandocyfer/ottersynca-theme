@@ -32,8 +32,8 @@ function cyfer_plugins_setup() {
     
     // Registra menus
     register_nav_menus(array(
-        'primary' => __('Menu Principal', 'cyfer-plugins'),
-        'footer' => __('Menu Rodapé', 'cyfer-plugins'),
+        'primary' => __('Primary Menu', 'cyfer-plugins'),
+        'footer' => __('Footer Menu', 'cyfer-plugins'),
     ));
 }
 add_action('after_setup_theme', 'cyfer_plugins_setup');
@@ -102,7 +102,7 @@ function cyfer_get_purchase_link($download_id = null) {
     }
     
     // Fallback se EDD não estiver ativo
-    return '<a href="' . esc_url(home_url('/contato/')) . '" class="buy-button">Solicitar Orçamento</a>';
+    return '<a href="' . esc_url(home_url('/contact/')) . '" class="buy-button">Request Quote</a>';
 }
 
 /**
@@ -141,7 +141,7 @@ add_filter('excerpt_more', 'cyfer_plugins_excerpt_more');
 function cyfer_plugins_add_meta_boxes() {
     add_meta_box(
         'plugin_details',
-        'Detalhes do Plugin',
+        'Plugin Details',
         'cyfer_plugins_meta_box_callback',
         'download',
         'normal',
@@ -167,29 +167,29 @@ function cyfer_plugins_meta_box_callback($post) {
     ?>
     <table class="form-table">
         <tr>
-            <th><label for="plugin_version">Versão do Plugin</label></th>
+            <th><label for="plugin_version">Plugin Version</label></th>
             <td>
                 <input type="text" id="plugin_version" name="plugin_version" value="<?php echo esc_attr($plugin_version); ?>" class="regular-text" />
             </td>
         </tr>
         <tr>
-            <th><label for="wp_version">Versão do WordPress</label></th>
+            <th><label for="wp_version">WordPress Version</label></th>
             <td>
                 <input type="text" id="wp_version" name="wp_version" value="<?php echo esc_attr($wp_version); ?>" class="regular-text" placeholder="5.0+" />
             </td>
         </tr>
         <tr>
-            <th><label>Funcionalidades</label></th>
+            <th><label>Features</label></th>
             <td>
                 <div id="features-container">
                     <?php foreach ($plugin_features as $index => $feature) : ?>
                         <div class="feature-row">
                             <input type="text" name="plugin_features[]" value="<?php echo esc_attr($feature); ?>" class="regular-text" />
-                            <button type="button" class="remove-feature button">Remover</button>
+                            <button type="button" class="remove-feature button">Remove</button>
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <button type="button" id="add-feature" class="button">Adicionar Funcionalidade</button>
+                <button type="button" id="add-feature" class="button">Add Feature</button>
             </td>
         </tr>
     </table>
@@ -197,7 +197,7 @@ function cyfer_plugins_meta_box_callback($post) {
     <script>
     jQuery(document).ready(function($) {
         $('#add-feature').click(function() {
-            var newRow = '<div class="feature-row"><input type="text" name="plugin_features[]" class="regular-text" /><button type="button" class="remove-feature button">Remover</button></div>';
+            var newRow = '<div class="feature-row"><input type="text" name="plugin_features[]" class="regular-text" /><button type="button" class="remove-feature button">Remove</button></div>';
             $('#features-container').append(newRow);
         });
         
@@ -284,7 +284,7 @@ function cyfer_default_menu() {
     echo '<ul class="nav-menu">';
     echo '<li><a href="' . esc_url(home_url('/')) . '">Home</a></li>';
     echo '<li><a href="' . esc_url(home_url('/downloads/')) . '">Plugins</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/sobre/')) . '">Sobre</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/contato/')) . '">Contato</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/about/')) . '">About</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/contact/')) . '">Contact</a></li>';
     echo '</ul>';
 } 

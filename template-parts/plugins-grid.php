@@ -73,15 +73,15 @@ $downloads_query = new WP_Query(array(
                 <?php 
                 $price = cyfer_get_download_price();
                 if ($price == '0.00') {
-                    echo '<span style="color: #4CAF50;">Grátis</span>';
+                    echo '<span style="color: #4CAF50;">Free</span>';
                 } else {
-                    echo 'R$ ' . $price;
+                    echo '$' . $price;
                 }
                 ?>
             </div>
             
             <a href="<?php the_permalink(); ?>" class="buy-button">
-                Ver Detalhes
+                View Details
             </a>
         </article>
     <?php endwhile; 
@@ -91,9 +91,9 @@ $downloads_query = new WP_Query(array(
             <div style="font-size: 3rem; color: #ddd; margin-bottom: 1rem;">
                 <i class="fas fa-puzzle-piece"></i>
             </div>
-            <h3 style="margin-bottom: 1rem; color: #333;">Nenhum plugin disponível</h3>
+            <h3 style="margin-bottom: 1rem; color: #333;">No plugins available</h3>
             <p style="color: #666;">
-                Ainda não temos plugins publicados. Em breve teremos novidades!
+                We don't have any plugins published yet. Coming soon!
             </p>
         </div>
     <?php endif; ?>
@@ -102,7 +102,7 @@ $downloads_query = new WP_Query(array(
 <?php if ($downloads_query->found_posts > $args['posts_per_page']) : ?>
     <div style="text-align: center; margin-top: 3rem;">
         <a href="<?php echo esc_url(home_url('/downloads/')); ?>" class="cta-button">
-            Ver Todos os Plugins
+            View All Plugins
         </a>
     </div>
 <?php endif; ?> 

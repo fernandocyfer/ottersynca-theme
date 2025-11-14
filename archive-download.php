@@ -4,11 +4,11 @@
     <div class="container">
         <header class="page-header" style="text-align: center; margin-bottom: 3rem;">
             <h1 class="page-title" style="font-size: 2.5rem; margin-bottom: 1rem; color: #333;">
-                Todos os Plugins
+                All Plugins
             </h1>
             
             <p style="color: #666; max-width: 600px; margin: 0 auto;">
-                Explore nossa coleção completa de plugins WordPress premium desenvolvidos pela Cyfer Development.
+                Explore our complete collection of premium WordPress plugins developed by Cyfer Development.
             </p>
         </header>
 
@@ -17,7 +17,7 @@
             <div class="plugins-filters" style="margin-bottom: 2rem; text-align: center;">
                 <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
                     <select class="plugin-filter" style="padding: 0.75rem 1rem; border: 2px solid #e9ecef; border-radius: 10px; background: white; font-size: 0.95rem; min-width: 200px;">
-                        <option value="all">Todas as Categorias</option>
+                        <option value="all">All Categories</option>
                         <?php
                         $categories = get_terms(array(
                             'taxonomy' => 'download_category',
@@ -33,23 +33,23 @@
                     </select>
                     
                     <select class="price-filter" style="padding: 0.75rem 1rem; border: 2px solid #e9ecef; border-radius: 10px; background: white; font-size: 0.95rem; min-width: 150px;">
-                        <option value="all">Todos os Preços</option>
-                        <option value="free">Grátis</option>
-                        <option value="paid">Pagos</option>
+                        <option value="all">All Prices</option>
+                        <option value="free">Free</option>
+                        <option value="paid">Paid</option>
                     </select>
                     
                     <select class="sort-filter" style="padding: 0.75rem 1rem; border: 2px solid #e9ecef; border-radius: 10px; background: white; font-size: 0.95rem; min-width: 180px;">
-                        <option value="date-desc">Mais Recentes</option>
-                        <option value="date-asc">Mais Antigos</option>
+                        <option value="date-desc">Newest</option>
+                        <option value="date-asc">Oldest</option>
                         <option value="title-asc">A-Z</option>
                         <option value="title-desc">Z-A</option>
-                        <option value="price-asc">Menor Preço</option>
-                        <option value="price-desc">Maior Preço</option>
+                        <option value="price-asc">Lowest Price</option>
+                        <option value="price-desc">Highest Price</option>
                     </select>
                     
                     <button class="clear-filters" style="padding: 0.75rem 1.5rem; background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 10px; color: #666; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease;">
                         <i class="fas fa-times" style="margin-right: 0.5rem;"></i>
-                        Limpar Filtros
+                        Clear Filters
                     </button>
                 </div>
                 
@@ -101,15 +101,15 @@
                             <?php 
                             $price = cyfer_get_download_price();
                             if ($price == '0.00') {
-                                echo '<span style="color: #4CAF50;">Grátis</span>';
+                                echo '<span style="color: #4CAF50;">Free</span>';
                             } else {
-                                echo 'R$ ' . $price;
+                                echo '$' . $price;
                             }
                             ?>
                         </div>
                         
                         <a href="<?php the_permalink(); ?>" class="buy-button">
-                            Ver Detalhes
+                            View Details
                         </a>
                     </article>
                 <?php endwhile; ?>
@@ -119,8 +119,8 @@
             <div class="pagination" style="text-align: center; margin-top: 3rem;">
                 <?php
                 echo paginate_links(array(
-                    'prev_text' => '<i class="fas fa-chevron-left"></i> Anterior',
-                    'next_text' => 'Próximo <i class="fas fa-chevron-right"></i>',
+                    'prev_text' => '<i class="fas fa-chevron-left"></i> Previous',
+                    'next_text' => 'Next <i class="fas fa-chevron-right"></i>',
                     'type' => 'list',
                     'class' => 'pagination-list',
                 ));
@@ -132,12 +132,12 @@
                 <div style="font-size: 4rem; color: #ddd; margin-bottom: 1rem;">
                     <i class="fas fa-search"></i>
                 </div>
-                <h2 style="margin-bottom: 1rem; color: #333;">Nenhum plugin encontrado</h2>
+                <h2 style="margin-bottom: 1rem; color: #333;">No plugins found</h2>
                 <p style="color: #666; margin-bottom: 2rem;">
-                    Não encontramos plugins que correspondam aos seus critérios de busca.
+                    We couldn't find any plugins matching your search criteria.
                 </p>
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="cta-button">
-                    Voltar ao Início
+                    Back to Home
                 </a>
             </div>
         <?php endif; ?>
